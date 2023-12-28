@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true
+  },
+  "projects": {
+    "comon": {
+      "type": "library",
+      "root": "libs/comon",
+      "entryFile": "index",
+      "sourceRoot": "libs/comon/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/comon/tsconfig.lib.json"
+      }
+    }
+  }
+}
