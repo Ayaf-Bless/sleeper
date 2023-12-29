@@ -8,9 +8,7 @@ import { ModelDefinition, MongooseModule } from '@nestjs/mongoose';
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => {
         return {
-          uri: configService.get('MONGODB_URI')
-            ? configService.get('MONGODB_URI')
-            : 'mongodb://127.0.0.1/sleeper',
+          uri: configService.get('MONGODB_URI'),
         };
       },
       inject: [ConfigService],
