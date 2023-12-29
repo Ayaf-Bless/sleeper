@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { AbstractRepository } from '@app/comon';
 import { Injectable, Logger } from '@nestjs/common';
-import { ReservationDocument } from './entities/reservation.schema';
+import { ReservationDocument } from './models/reservation.schema';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 

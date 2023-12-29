@@ -14,5 +14,19 @@ services:
     environment:
       MONGODB_URI: "mongodb://mongo:27017/sleeper"
     
+  auth:
+    build:
+      context: .
+      dockerfile: ./apps/auth/Dockerfile
+      target: development
+    command: npm run start:dev auth
+    ports:
+      - "3001:3001"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      MONGODB_URI: "mongodb://mongo:27017/sleeper"
+
   mongo:
     image: mongo

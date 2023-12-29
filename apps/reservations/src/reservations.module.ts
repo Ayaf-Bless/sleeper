@@ -6,7 +6,7 @@ import { ReservationsRepository } from './reservations.repository';
 import {
   ReservationDocument,
   ReservationsSchema,
-} from './entities/reservation.schema';
+} from './models/reservation.schema';
 
 @Module({
   imports: [
