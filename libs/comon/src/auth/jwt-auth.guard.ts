@@ -5,12 +5,13 @@ import {
   ExecutionContext,
   Inject,
 } from '@nestjs/common';
-import { Observable, tap } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
 import {
   AUTHENTICATE_MESSAGE_PARTERN,
   AUTH_SERVICE,
 } from '../constants/services';
 import { ClientProxy } from '@nestjs/microservices';
+import { UserDto } from '../dto';
 
 @Injectable()
 export class JwtAuthGuard implements CanActivate {
@@ -23,13 +24,14 @@ export class JwtAuthGuard implements CanActivate {
     if (!jwt) return false;
 
     return this.authClient
-      .send(AUTHENTICATE_MESSAGE_PARTERN, {
+      .send<UserDto>(AUTHENTICATE_MESSAGE_PARTERN, {
         Authentication: jwt,
       })
       .pipe(
         tap((res) => {
           context.switchToHttp().getRequest().user = res;
         }),
+        map(() => true),
       );
   }
 }
