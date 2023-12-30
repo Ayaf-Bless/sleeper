@@ -8,10 +8,20 @@ import { GetUserDto } from './dto/get-user.dto';
 export class UserService {
   constructor(private readonly userRepository: UserRepository) {}
   async create(createUserDto: CreateUserDto) {
+    await this.validateUserDto(createUserDto);
     return this.userRepository.create({
       ...createUserDto,
       password: await bcrypt.hash(createUserDto.password, 10),
     });
+  }
+
+  private async validateUserDto(createUserDto: CreateUserDto) {
+    try {
+      await this.userRepository.findOne({ email: createUserDto.email });
+    } catch (error) {
+      return;
+    }
+    throw new UnauthorizedException('email already exist');
   }
 
   async verifyUser(email: string, password: string) {
