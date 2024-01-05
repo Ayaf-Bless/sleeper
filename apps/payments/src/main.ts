@@ -18,3 +18,5 @@ async function bootstrap() {
   await app.startAllMicroservices();
 }
 bootstrap();
+
+//TS is great
