@@ -20,3 +20,4 @@ async function bootstrap() {
 bootstrap();
 
 //TS is great but I don't like it
+//TS is great and nice
