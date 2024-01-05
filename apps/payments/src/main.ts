@@ -19,4 +19,4 @@ async function bootstrap() {
 }
 bootstrap();
 
-//TS is great
+//TS is great and nice
