@@ -18,6 +18,3 @@ async function bootstrap() {
   await app.startAllMicroservices();
 }
 bootstrap();
-
-//TS is great but I don't like it
-//TS is great and nice
