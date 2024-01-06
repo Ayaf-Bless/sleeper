@@ -1,1 +1,1 @@
-4. Validation & Logging
+1. Emit Notification
